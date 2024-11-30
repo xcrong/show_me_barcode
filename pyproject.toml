@@ -1,0 +1,37 @@
+[project]
+name = "show-me-barcode"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "theocheng", email = "zlz_gty@foxmail.com" }
+]
+dependencies = [
+    "openai>=1.55.3",
+    "fastapi>=0.115.5",
+    "uvicorn>=0.32.1",
+    "jinja2>=3.1.4",
+    "python-multipart>=0.0.18",
+    "python-barcode>=0.15.1",
+    "pillow>=11.0.0",
+    "h2>=4.1.0",
+    "pyopenssl>=24.3.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+"test" = "show_me_barcode:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/show_me_barcode"]

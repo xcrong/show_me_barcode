@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三无教材查询系统</title>
+    <link href="static/tailwind.min.css" rel="stylesheet">
+    <link href="static/main.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 content-container">
+        <h1 class="text-3xl font-bold text-center mb-8">三无教材查询系统</h1>
+
+        <div class="max-w-xl mx-auto">
+            <!-- 历史记录 -->
+            <div id="historyContainer" class="mb-4 bg-white rounded-lg shadow-md p-4 hidden">
+                <div class="flex justify-between items-center mb-2">
+                    <h2 class="text-lg font-semibold">历史记录</h2>
+                    <button id="clearHistory" class="text-sm text-gray-500 hover:text-gray-700">清空</button>
+                </div>
+                <div id="historyList" class="space-y-2">
+                    <!-- 历史记录项会被动态插入到这里 -->
+                </div>
+            </div>
+
+            <div id="loadingState" class="hidden bg-white rounded-lg shadow-md p-6 text-center">
+                <div class="loading-spinner mb-4"></div>
+                <p class="text-gray-600">正在查询中，请稍候...</p>
+            </div>
+
+            <div id="result" class="hidden bg-white rounded-lg shadow-md p-6 result-card">
+                <h2 class="text-xl font-semibold mb-4">查询结果</h2>
+                <div id="bookInfo">
+                    <p class="mb-2"><span class="font-semibold">书名：</span><span id="bookTitle"></span></p>
+                    <p class="mb-4"><span class="font-semibold">ISBN：</span><span id="bookIsbn"></span></p>
+                    <div class="text-center">
+                        <img id="barcodeImage" alt="ISBN条形码" class="mx-auto">
+                    </div>
+                </div>
+                <div id="errorMessage" class="text-red-500 text-center"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 固定在底部的搜索表单 -->
+    <div class="search-container">
+        <div class="max-w-xl mx-auto">
+            <form id="searchForm" class="mb-0">
+                <div class="flex gap-2">
+                    <input type="text" id="query" name="query"
+                        class="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg"
+                        placeholder="输入书名或相关信息...">
+                    <button type="submit" id="searchButton"
+                        class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 flex items-center gap-2 min-w-[80px] justify-center">
+                        <span>查询</span>
+                        <div class="loading-spinner hidden"></div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="static/main.js"></script>
+</body>
+
+</html>
