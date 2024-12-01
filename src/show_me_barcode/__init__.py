@@ -1,10 +1,6 @@
 import csv
 import json
 import os
-import io
-import base64
-import barcode
-from barcode.writer import ImageWriter
 
 from fastapi import FastAPI, Request, Form
 from openai import OpenAI
