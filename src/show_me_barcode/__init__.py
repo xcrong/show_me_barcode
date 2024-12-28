@@ -52,14 +52,14 @@ async def search(query: str = Form(...)):
         for _ in range(3):
             response = client.chat.completions.create(
                 model=MOUDLE_NAME,
-                messages=messages, # type: ignore
+                messages=messages,  # type: ignore
                 temperature=0.1,
                 max_tokens=1000,
                 response_format={"type": "json_object"},
             )
             try:
                 print(response.choices[0].message.content)
-                books = json.loads(response.choices[0].message.content) # type: ignore
+                books = json.loads(response.choices[0].message.content)  # type: ignore
             except Exception as e:
                 print(f"Error parsing response: {e}")
                 books = {}
