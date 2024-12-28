@@ -2,7 +2,7 @@
 name = "show-me-barcode"
 version = "0.1.0"
 description = "Add your description here"
-authors = [    { name = "theocheng", email = "zlz_gty@foxmail.com" }]
+authors = [{ name = "theocheng", email = "zlz_gty@foxmail.com" }]
 dependencies = [
     "openai>=1.55.3",
     "fastapi>=0.115.5",
