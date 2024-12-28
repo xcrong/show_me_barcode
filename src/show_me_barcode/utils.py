@@ -1,8 +1,6 @@
 import io
 import base64
 import barcode
-from barcode import generate
-
 import barcode.writer
 import qrcode
 
@@ -14,7 +12,9 @@ def isbn_to_barcode(isbn: str) -> str:
         # 生成条形码到内存
         rv = io.BytesIO()
         # generate("code39", isbn, writer=barcode.writer.ImageWriter(), output=rv)
-        barcode.Code39(isbn, writer=barcode.writer.ImageWriter(), add_checksum=False).write(rv)
+        barcode.Code39(
+            isbn, writer=barcode.writer.ImageWriter(), add_checksum=False
+        ).write(rv)
 
         # 转换为base64
         encoded = base64.b64encode(rv.getvalue()).decode()
